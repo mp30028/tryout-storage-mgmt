@@ -1,6 +1,9 @@
 ## Project aim
 Demonstrate provisioning and use of remote storage in docker containers
 
+### Overview
+![overview](docs/diagrams/images/01-overview.png)
+
 ### Approach outline
 1. Create a docker compose project to bring up a MySql database
 2. Configure the compose project to put the MySql data files in a docker volume so that the data persists beyond the life of the MySql containers
