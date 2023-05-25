@@ -7,14 +7,24 @@ services:
     stdin_open: false
     tty: false
     ports:
-      - 53306:53306
-    environment:
-      - MYSQL_ROOT_PASSWORD=Root*localhost
-      - MYSQL_TCP_PORT=53306
+      - ${MYSQL_TCP_PORT}:${MYSQL_TCP_PORT}
+    env_file: .env
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=Root*localhost
+#      - MYSQL_TCP_PORT=43306
+#      - MYSQL_DATAFILES=G:\dev\java-projects\test-db-data-3
     volumes:
-      - G:\dev\java-projects\test-db-data-2:/var/lib/mysql
+      - db-data-volume:/var/lib/mysql
     networks:
       - test-db-net
 
 networks:
   test-db-net:
+  
+volumes:
+  db-data-volume:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ${MYSQL_DATAFILES_DIR}
