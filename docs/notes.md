@@ -15,7 +15,7 @@
  
  
 ### Points to note
-1. MySql-Server configs
+**MySql-Server configs**<br/>
 MySql-Server is configured and started using `docker compose`. The configs should be stored in a `.env` file. There is a sample file provided named `sample.env`. For testing purposes update this file with config appropriate for where it is being run then rename and save it as `.env`. Then follow the above instructions.
 
 

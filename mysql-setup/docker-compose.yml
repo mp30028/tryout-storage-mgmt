@@ -9,10 +9,6 @@ services:
     ports:
       - ${MYSQL_TCP_PORT}:${MYSQL_TCP_PORT}
     env_file: .env
-#    environment:
-#      - MYSQL_ROOT_PASSWORD=Root*localhost
-#      - MYSQL_TCP_PORT=43306
-#      - MYSQL_DATAFILES=G:\dev\java-projects\test-db-data-3
     volumes:
       - db-data-volume:/var/lib/mysql
     networks:
