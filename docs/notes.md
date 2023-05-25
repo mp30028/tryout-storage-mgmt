@@ -1,3 +1,5 @@
+### Instructions for running the MySql-Server container and connecting to db with MySql-CLI
+
 1. Start up MySql
  - `cd` into the `../mysql-setup` directory and run `docker compose up`
  
@@ -9,4 +11,9 @@
  This should take you to the bash shell in the container.
  
 4. Start the MySql-Client available in the `test-db-cli` container and connect to the db started in the first step.
- - `mysql -u root -pRoot*localhost --host=test-db --port=53306`
+ - `mysql -u root -pr007*Password --host=test-db --port=43306`
+ 
+ 
+ ### Points to note
+1. MySql-Server configs
+MySql-Server is configured and started using `docker compose`. The configs should be stored in a `.env` file. There is a sample file provided named `sample.env`. For testing purposes update this file with config appropriate for where it is being run then rename and save it as `.env`. Then follow the above instructions.
