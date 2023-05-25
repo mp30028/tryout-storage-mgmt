@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v3
 
       #  Check out the sftp-to-remote action
-      - uses: mp30028/tryout-storage-mgmt/workflows/.actions/sftp-to-remote@main
+      - uses: mp30028/tryout-storage-mgmt/.github/actions/sftp-to-remote@main
         with:
           remote_username: ${{ secrets.REMOTE_USERNAME  }}
           remote_host: ${{ secrets.REMOTE_SERVER  }}
@@ -38,7 +38,7 @@ jobs:
     steps:
       
       #  Check out the sftp-folder-to-remote action
-      - uses: mp30028/tryout-storage-mgmt/workflows/.actions/execute-remote-command@main
+      - uses: mp30028/tryout-storage-mgmt/.github/actions/execute-remote-command@main
         with:
           remote_username: ${{ secrets.REMOTE_USERNAME  }}
           remote_host: ${{ secrets.REMOTE_SERVER  }}
