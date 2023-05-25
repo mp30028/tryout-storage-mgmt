@@ -18,6 +18,9 @@
 **MySql-Server configs**<br/>
 MySql-Server is configured and started using `docker compose`. The configs should be stored in a `.env` file. There is a sample file provided named `sample.env`. For testing purposes update this file with config appropriate for where it is being run then rename and save it as `.env`. Then follow the above instructions.
 
+**Permissions on .env containing the MySql-Server configs**<br/>
+If the `.env` file is to be used to start the application by workflow than the permissions will need to be added to this file.
+For example `chown root:workflow_user mysql-setup` and `chown root:workflow_user mysql-setup/.env`
 
 ### Web Resources
 Understand how environment variables, args and variables can be used in Docker, Dockerfile and docker compose
