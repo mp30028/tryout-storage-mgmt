@@ -44,4 +44,4 @@ jobs:
           remote_host: ${{ secrets.REMOTE_SERVER  }}
           remote_port: ${{ secrets.REMOTE_PORT  }}
           remote_ssh_key: ${{ secrets.REMOTE_SSH_KEY  }}
-          remote_cmd: cd ${{ vars.REMOTE_FILEPATH  }}/mysql-setup; docker compose up -d;
+          remote_cmd: cd ${{ vars.REMOTE_FILEPATH  }}/mysql-setup; docker compose down; docker compose up -d;
