@@ -28,3 +28,5 @@ Understand how environment variables, args and variables can be used in Docker, 
 [Understanding Docker Build Args, Environment Variables and Docker Compose Variables](https://vsupalov.com/docker-env-vars/)
 
 [Docker ARG, ENV and .env - a Complete Guide](https://vsupalov.com/docker-arg-env-variable-guide/)
+
+[docker-compose Environment Variables](https://adamtheautomator.com/docker-compose-environment-variables/)
