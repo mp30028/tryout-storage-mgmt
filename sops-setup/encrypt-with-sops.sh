@@ -1,5 +1,6 @@
 #!/bin/bash
 
+KEYS_TO_ENCRYPT="$2"
 set -eu
 
 FULL_FILEPATH="$1"
@@ -8,18 +9,25 @@ FILENAME=$(basename -- "$FULL_FILEPATH")
 EXTENSION="${FILENAME##*.}"
 NAME_PART="${FILENAME%.*}"
 
-#extension="${filename##*.}"
-#filename="${filename%.*}"
-#sops --encrypt --age $(cat ~/.sops/key.txt |grep -oP "public key: \K(.*)") $2 $3 $1 > "$filename.enc.$extension"
+if [ -z "$KEYS_TO_ENCRYPT" ]; then
+  SOPS_COMMAND=""
+else
+  SOPS_COMMAND="--encrypted-regex=^(${KEYS_TO_ENCRYPT})$"
+fi
 
 echo "FULL_FILEPATH =  ${FULL_FILEPATH}"
 echo "FILENAME = ${FILENAME}"
 echo "EXTENSION = ${EXTENSION}"
 echo "NAME_PART = ${NAME_PART}"
 echo "DIRECTORY_PATH = ${DIRECTORY_PATH}"
+echo "SOPS_COMMAND = ${SOPS_COMMAND}"
 
 ENCRYPTED_FILE="${DIRECTORY_PATH}/${NAME_PART}.enc.${EXTENSION}"
 
-sops --encrypt --age $(cat ~/.sops/key.txt |grep -oP "public key: \K(.*)") $FULL_FILEPATH > $ENCRYPTED_FILE
+sops --encrypt --age $(cat ~/.sops/key.txt |grep -oP "public key: \K(.*)") $SOPS_COMMAND $FULL_FILEPATH > $ENCRYPTED_FILE
 
-echo "SOPS encrypted file ${FULL_FILEPATH} successfully to ${ENCRYPTED_FILE}"
+rm $FULL_FILEPATH
+mv $ENCRYPTED_FILE $FULL_FILEPATH
+ENCRYPTED_FILE=$FULL_FILEPATH
+
+echo "SOPS encrypted ${FULL_FILEPATH} successfully."
