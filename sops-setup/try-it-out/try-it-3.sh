@@ -1,32 +1,31 @@
 #!/bin/bash
-
-echo "key1: Value_One" >  config.yaml
-echo "key2: Value_Two" >> config.yaml
-echo "key3: Value_Three" >> config.yaml
-
+cp sample.env.original sample.env
 echo "----------------------------------------------------------------------"
-echo "    Test input file, config.yaml, created with the following content"
+echo "      Contents of test input file, sample.env, before encryption"
 echo "----------------------------------------------------------------------"
-cat config.yaml
+cat sample.env
 echo "======================================================================"
 echo ""
 echo ""
 echo ""
 echo ""
 echo "----------------------------------------------------------------------"
-echo "      Encrypting key1 and key3 but no other keys in config.yaml"
+echo "               Encrypting MYSQL_ROOT_PASSWORD and MYSQL_PASSWORD in sample.env"
 echo "----------------------------------------------------------------------"
 echo ""
 echo ""
-../encrypt-with-sops.sh config.yaml "key1|key3"
+../encrypt-with-sops.sh sample.env "MYSQL_ROOT_PASSWORD|MYSQL_PASSWORD|MYSQL_TCP_PORT"
 echo ""
 echo ""
-cat config.yaml
+cat sample.env
 echo ""
 echo ""
 echo "======================================================================"
 
 echo ""
 echo ""
-echo "run \"sops config.yaml\" to view and edit an unencrypted version of the"
+echo "run \"sops sample.env\" to view and edit an unencrypted version of the"
 echo "file and to re-encrypt any changes automatically"
+echo ""
+echo "to encrypt new keys first decrypt the encrypted file with "
+echo " \"sops -d sample.env > decrypted-sample.env"
