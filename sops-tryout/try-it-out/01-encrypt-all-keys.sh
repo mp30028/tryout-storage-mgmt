@@ -9,24 +9,25 @@ echo "    Test input file, config.yaml, created with the following content"
 echo "----------------------------------------------------------------------"
 cat config.yaml
 echo "======================================================================"
+
 echo ""
 echo ""
 echo ""
 echo ""
 echo "----------------------------------------------------------------------"
-echo "      Encrypting key1 and key3 but no other keys in config.yaml"
+echo "               Encrypting all keys in config.yaml"
 echo "----------------------------------------------------------------------"
 echo ""
 echo ""
-../encrypt-with-sops.sh config.yaml "key1|key3"
+../encrypt-with-sops.sh config.yaml
 echo ""
 echo ""
-cat config.yaml
+cat config.enc.yaml
 echo ""
 echo ""
 echo "======================================================================"
 
 echo ""
 echo ""
-echo "run \"sops config.yaml\" to view and edit an unencrypted version of the"
+echo "run \"sops config.enc.yaml\" to view and edit an unencrypted version of the"
 echo "file and to re-encrypt any changes automatically"

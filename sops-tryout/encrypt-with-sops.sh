@@ -27,7 +27,7 @@ ENCRYPTED_FILE="${DIRECTORY_PATH}/${NAME_PART}.enc.${EXTENSION}"
 sops --encrypt --age $(cat ~/.sops/key.txt |grep -oP "public key: \K(.*)") $SOPS_COMMAND $FULL_FILEPATH > $ENCRYPTED_FILE
 
 rm $FULL_FILEPATH
-mv $ENCRYPTED_FILE $FULL_FILEPATH
-ENCRYPTED_FILE=$FULL_FILEPATH
+# mv $ENCRYPTED_FILE $FULL_FILEPATH
+# ENCRYPTED_FILE=$FULL_FILEPATH
 
-echo "SOPS encrypted ${FULL_FILEPATH} successfully."
+echo "SOPS encrypted ${FULL_FILEPATH} to ${ENCRYPTED_FILE} successfully."
