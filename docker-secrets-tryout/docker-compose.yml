@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+
+  my_service:
+    image: ubuntu:23.10
+    entrypoint: "cat /run/secrets/mysql-root-password"
+    secrets:
+      - mysql-root-password
+
+secrets:
+  mysql-root-password:
+    file: ./secrets/mysql/root/password.txt
