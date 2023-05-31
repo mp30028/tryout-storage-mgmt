@@ -1,0 +1,1 @@
+find -type f -not -name '*.sh' -not -name '*sample.env.original' -delete
