@@ -1,0 +1,1 @@
+![using-secrets](../docs/diagrams/images/using-docker-secrets.png)
