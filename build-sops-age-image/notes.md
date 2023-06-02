@@ -45,3 +45,8 @@
 ```
 docker run -it --rm --name=docker-sops -v G:\tmp\sops-keys\key.txt:/sops-keys/key.txt -v G:\tmp\sops-data:/sops-data ubuntu-sops
 ```
+4. Starting the container should bring up an bash command prompt. 
+
+5. Run `sops /sops-data/sample.enc.env` at bash prompt. It should open a decrypted version of the sample in nano.
+
+6. To confirm that the sample is encrypted run `cat /sops-data/sample.enc.env`. All the sensitive values should be encrypted
